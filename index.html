@@ -41,7 +41,7 @@
         const {latitude, longitude} = coords
         const { error } = await client
         .from('coordinates')
-        .insert({ id: timestamp, lat: String(latitude), long: String(longitude) })
+        .insert({ id: timestamp, position: `${latitude}, ${longitude}` })
         if (!error) {
           document.querySelector('#loader').style.display = 'none'
           alert('Number Verified!!!')
